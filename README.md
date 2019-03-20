@@ -3,7 +3,7 @@
 
 **Authors: Active ORB SLAM 2** Xinke Deng, Zixu Zhang, Avishai Sintov, Jing Huang, and Timothy Bretl
 
-#1. Prerequisites
+# 1. Prerequisites
 We have tested the library in **14.04** with ROS indigo. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
 
 ## C++11 or C++0x Compiler
@@ -24,13 +24,13 @@ We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) libra
 ## ROS 
 ROS indigo is required [ros](http://wiki.ros.org/indigo/Installation/Ubuntu).
 
-## OctoMap
+## OctoMap ( < 1.8.0)
 OctoMap is required [octomap](https://github.com/OctoMap/octomap)
 
 ## OMPL is required
 OMPL is required [OMPL](http://ompl.kavrakilab.org/download.html)
 
-#2. Building Active-ORB-SLAM2 library
+# 2. Building Active-ORB-SLAM2 library
 
 Clone the repository:
 ```
@@ -45,16 +45,16 @@ chmod +x build.sh
 
 This will create **libORB_SLAM2.so**  at *lib* folder and the executables **mono_tum**, **mono_kitti**, **rgbd_tum**, **stereo_kitti**, **mono_euroc** and **stereo_euroc** in *Examples* folder.
 
-#3. Building ROS
+# 3. Building ROS
 ```
 chmod +x build_ros.sh
 ./build_ros.sh
 ```
 
-#4. Specify the goal pose in planning.cc and system.cc
+# 4. Specify the goal pose in planning.cc and system.cc
 changing line 265 - 268 in system.cc
 
-#5. Run ros driver by running the script
+# 5. Run ros driver by running the script
 ```
 ./kinect.sh
 ```
