@@ -24,6 +24,8 @@ We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) libra
 ## ROS 
 ROS indigo is required [ros](http://wiki.ros.org/indigo/Installation/Ubuntu).
 
+Actually melodic would work as well.
+
 ## OctoMap ( < 1.8.0)
 OctoMap is required [octomap](https://github.com/OctoMap/octomap)
 
