@@ -1,3 +1,13 @@
+echo "Configuring and building Thirdparty/octomap ..."
+
+cd Thirdparty/octomap
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j
+
+cd ../../../
+
 echo "Configuring and building Thirdparty/DBoW2 ..."
 
 cd Thirdparty/DBoW2
