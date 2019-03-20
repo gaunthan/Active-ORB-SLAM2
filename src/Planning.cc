@@ -111,7 +111,7 @@ void Planning::Run() {
                         Eigen::Vector3f eulerAngleKf = T_wb.topLeftCorner<3,3>().eulerAngles(2,1,0);
                         kfpose.push_back(double(eulerAngleKf(0)));
                         keyframePose.push_back(kfpose);
-                    }
+                }
 
             }            
 
@@ -230,8 +230,10 @@ void Planning::Run() {
             */ 
             cout << "*********************** In Planning.cc *********************" << endl;
             cout << "copied planned trajectory size = " << current_trajectory.size() << endl;
-            cout << "copied planned trajectory first = [ " << current_trajectory[0][0] << ", " << current_trajectory[0][1] << ", " << current_trajectory[0][2] << "] " << endl;
-            cout << "copied planned trajectory last = [ " << current_trajectory[current_trajectory.size()-1][0] << ", " << current_trajectory[current_trajectory.size()-1][1] << ", " << current_trajectory[current_trajectory.size()-1][2] << "] " << endl;            
+            if (current_trajectory.size() > 0) {
+                cout << "copied planned trajectory first = [ " << current_trajectory[0][0] << ", " << current_trajectory[0][1] << ", " << current_trajectory[0][2] << "] " << endl;
+                cout << "copied planned trajectory last = [ " << current_trajectory[current_trajectory.size()-1][0] << ", " << current_trajectory[current_trajectory.size()-1][1] << ", " << current_trajectory[current_trajectory.size()-1][2] << "] " << endl;
+            }
             cout << "*********************** End Planning.cc *********************" << endl;
                                
 
