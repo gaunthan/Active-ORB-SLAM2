@@ -27,6 +27,11 @@ ROS indigo is required [ros](http://wiki.ros.org/indigo/Installation/Ubuntu).
 ## OctoMap ( < 1.8.0)
 OctoMap is required [octomap](https://github.com/OctoMap/octomap)
 
+You also need to install ros-version-octomap-ros. If you are using ros-melodic, you can install it by this command
+```
+sudo apt install ros-melodic-octomap-ros
+```  
+
 ## OMPL is required
 OMPL is required [OMPL](http://ompl.kavrakilab.org/download.html)
 
