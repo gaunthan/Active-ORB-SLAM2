@@ -37,6 +37,11 @@ sudo apt install ros-melodic-octomap-ros
 ## OMPL is required
 OMPL is required [OMPL](http://ompl.kavrakilab.org/download.html)
 
+You can install it by this command
+```
+sudo apt install libompl-dev
+```
+
 # 2. Building Active-ORB-SLAM2 library
 
 Clone the repository:
