@@ -128,8 +128,10 @@ int main(int argc, char **argv)
 
     ros::NodeHandle nh;
 
-    message_filters::Subscriber<sensor_msgs::Image> rgb_sub(nh, "/kinect2/qhd/image_mono", 1);
-    message_filters::Subscriber<sensor_msgs::Image> depth_sub(nh, "/kinect2/qhd/image_depth_rect", 1);
+    message_filters::Subscriber<sensor_msgs::Image> rgb_sub(nh, "/camera/rgb/image_mono", 1);
+    message_filters::Subscriber<sensor_msgs::Image> depth_sub(nh, "/camera/depth/image_rect", 1);
+    //message_filters::Subscriber<sensor_msgs::Image> rgb_sub(nh, "/kinect2/qhd/image_mono", 1);
+    //message_filters::Subscriber<sensor_msgs::Image> depth_sub(nh, "/kinect2/qhd/image_depth_rect", 1);
     typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::Image> sync_pol;
     message_filters::Synchronizer<sync_pol> sync(sync_pol(10), rgb_sub,depth_sub);
 
@@ -203,7 +205,10 @@ void ImageGrabber::GrabRGBD(const sensor_msgs::ImageConstPtr& msgRGB,const senso
 
     depthFactor = mpSLAM->GetDepthScaleFactor();
 
-    trackingLostPublisher.publish(mpSLAM->getRecoverMode());
+    std_msgs::Bool the_state;
+    the_state.data = mpSLAM->getRecoverMode();
+    trackingLostPublisher.publish(the_state);
+    //trackingLostPublisher.publish(mpSLAM->getRecoverMode());
     
     if (pose.empty())
         return;
@@ -239,13 +244,25 @@ void ImageGrabber::GrabRGBD(const sensor_msgs::ImageConstPtr& msgRGB,const senso
             int exprStatus = mpSLAM->getExplorationStatus();
 
             if(exprStatus == 0){
-                explorationPublisher.publish(false);
+                std_msgs::Bool the_state;
+                the_state.data = false;
+                explorationPublisher.publish(the_state);
+                //explorationPublisher.publish(false);
             }else{
-                explorationPublisher.publish(true);
+                std_msgs::Bool the_state;
+                the_state.data = true;
+                explorationPublisher.publish(the_state);
+                //explorationPublisher.publish(true);
                 if(exprStatus == 1){
-                    directionPublisher.publish(false);
+                    std_msgs::Bool the_state;
+                    the_state.data = false;
+                    directionPublisher.publish(the_state);
+                    //directionPublisher.publish(false);
                 }else if(exprStatus == -1){
-                    directionPublisher.publish(true);
+                    std_msgs::Bool the_state;
+                    the_state.data = true;
+                    directionPublisher.publish(the_state);
+                    //directionPublisher.publish(true);
                 }
             }
 
