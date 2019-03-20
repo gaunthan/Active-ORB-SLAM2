@@ -53,7 +53,8 @@ camera::camera(map_data MD, int thres)
             0 ,  -1.0000 ,        0  ,       0,
             0 ,        0  ,       0   , 1.0000;
 
-    frameGrid.setZero(FRAME_GRID_ROWS, GRID_COLS);
+    //frameGrid.setZero(FRAME_GRID_ROWS, GRID_COLS);
+    frameGrid.setZero(GRID_ROWS, GRID_COLS);
 
     for(int i=0; i<GRID_COLS; i++){
         colCoeff[i] = i;
