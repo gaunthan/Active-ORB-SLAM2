@@ -122,6 +122,13 @@ private:
     */
     //Eigen::Matrix4f T_cs;
     //Eigen::Matrix4f T_sc;
+
+
+    /* Fixed-size vectorizable Eigen object need to be careful about!!!
+     * http://eigen.tuxfamily.org/dox-devel/group__TopicFixedSizeVectorizable.html
+     * http://eigen.tuxfamily.org/dox-devel/group__TopicStructHavingEigenMembers.html
+     * Compiling with C++17 is the eaiest way to solve the problem.
+     */
     Eigen::Matrix4f T_sw;
     Eigen::Matrix4f T_bc;
     Eigen::Matrix4f T_sb; 
