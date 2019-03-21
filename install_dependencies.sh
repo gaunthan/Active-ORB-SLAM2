@@ -7,6 +7,7 @@
 #   - Eigen 3.3.4
 #   - OMPL
 #   - OctoMap 1.7.2
+#   - Kinect V1 (XBox 360) driver
 
 sudo apt-get install cmake -y
 sudo apt-get install libglew-dev -y
@@ -55,3 +56,6 @@ sudo make install
 cd "$curr_dir"
 
 sudo apt install ros-*-octomap-ros -y
+
+# Install Kinect V1 (XBox 360) driver
+sudo apt install ros-melodic-openni-camera ros-melodic-openni-launch -y
