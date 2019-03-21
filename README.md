@@ -6,6 +6,11 @@
 # 1. Prerequisites
 We have tested the library in **18.04** with ROS melodic. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
 
+You can easily install all prerequisites by running `./install_dependencies.sh` or the following command
+```
+curl -sLf https://raw.githubusercontent.com/gaunthan/Active-ORB-SLAM2/master/install_dependencies.sh | bash
+```
+
 ## C++17
 We use the new thread and chrono functionalities of C++11. To avoid problems occured with Eigen, please compile with C++17.
 
@@ -24,7 +29,7 @@ We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) libra
 ## ROS 
 ROS melodic is required [ros](http://wiki.ros.org/melodic/Installation/Ubuntu).
 
-## OctoMap ( < 1.8.0)
+## OctoMap (< 1.8.0, Included in Thirdparty folder)
 OctoMap is required [octomap](https://github.com/OctoMap/octomap)
 
 You also need to install ros-version-octomap-ros. If you are using ros-melodic, you can install it by this command
@@ -64,9 +69,19 @@ chmod +x build_ros.sh
 # 4. Specify the goal pose in planning.cc and system.cc
 changing line 265 - 268 in system.cc
 
-# 5. Run ros driver by running the script
+# 5. Run ros nodes
+## Run Kinect
+Plugin in your Kinect v1 (XBox 360), then run the following script to launch Kinect device
+```
+./launch_kinect.sh
+```
+
+If you use different RGB-D camera, modify subscribed topics at `Examples/ROS/ORB_SLAM2/src/ros_rgbd.cc`.
+
+## Run Active-ORB-SLAM2
+Run the following script to launch Active-ORB-SLAM2
 ```
 ./kinect.sh
 ```
 
-
+If you want to run it with gdb, you can easily do that by running `./kinect_gdb.sh`.
