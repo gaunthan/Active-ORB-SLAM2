@@ -4,10 +4,10 @@
 **Authors: Active ORB SLAM 2** Xinke Deng, Zixu Zhang, Avishai Sintov, Jing Huang, and Timothy Bretl
 
 # 1. Prerequisites
-We have tested the library in **14.04** with ROS indigo. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
+We have tested the library in **18.04** with ROS melodic. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
 
-## C++11 or C++0x Compiler
-We use the new thread and chrono functionalities of C++11.
+## C++17
+We use the new thread and chrono functionalities of C++11. To avoid problems occured with Eigen, please compile with C++17.
 
 ## Pangolin
 We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
@@ -22,9 +22,7 @@ Required by g2o (see below). Download and install instructions can be found at: 
 We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) library to perform place recognition and [g2o](https://github.com/RainerKuemmerle/g2o) library to perform non-linear optimizations. Both modified libraries (which are BSD) are included in the *Thirdparty* folder.
 
 ## ROS 
-ROS indigo is required [ros](http://wiki.ros.org/indigo/Installation/Ubuntu).
-
-Actually melodic would work as well.
+ROS melodic is required [ros](http://wiki.ros.org/melodic/Installation/Ubuntu).
 
 ## OctoMap ( < 1.8.0)
 OctoMap is required [octomap](https://github.com/OctoMap/octomap)
