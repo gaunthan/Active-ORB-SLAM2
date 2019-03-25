@@ -206,14 +206,14 @@ void OctomapBuilder::findFrontier(){
                     //check point state: free/unknown
                     octomap::OcTreeNode* node = globalOctoMap->search(neipoint);
                     if(node == NULL)
-                        neighbFree=1;
+                        neighbFree = true;
                     else
                     {
                         if(!globalOctoMap->isNodeOccupied(node))
-                            neighbUnknown=1;
+                            neighbUnknown = true;
                     }
             }
-            if(neighbFree==1 && neighbUnknown==1)
+            if(neighbFree && neighbUnknown)
             {
                 frontierCells.insert(key);
             }            

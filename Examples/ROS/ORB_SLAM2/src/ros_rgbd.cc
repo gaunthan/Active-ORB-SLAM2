@@ -243,26 +243,20 @@ void ImageGrabber::GrabRGBD(const sensor_msgs::ImageConstPtr& msgRGB,const senso
 
             int exprStatus = mpSLAM->getExplorationStatus();
 
-            if(exprStatus == 0){
-                std_msgs::Bool the_state;
-                the_state.data = false;
-                explorationPublisher.publish(the_state);
-                //explorationPublisher.publish(false);
-            }else{
-                std_msgs::Bool the_state;
-                the_state.data = true;
-                explorationPublisher.publish(the_state);
-                //explorationPublisher.publish(true);
-                if(exprStatus == 1){
-                    std_msgs::Bool the_state;
-                    the_state.data = false;
-                    directionPublisher.publish(the_state);
-                    //directionPublisher.publish(false);
-                }else if(exprStatus == -1){
-                    std_msgs::Bool the_state;
-                    the_state.data = true;
-                    directionPublisher.publish(the_state);
-                    //directionPublisher.publish(true);
+            auto bool_to_msg = [] (bool state) {
+                std_msgs::Bool msg;
+                msg.data = state;
+                return msg;
+            };
+
+            if (exprStatus == 0) {
+                explorationPublisher.publish(bool_to_msg(false));
+            } else {
+                explorationPublisher.publish(bool_to_msg(true));
+                if (exprStatus == 1) {
+                    directionPublisher.publish(bool_to_msg(false));
+                } else if(exprStatus == -1){
+                    directionPublisher.publish(bool_to_msg(true));
                 }
             }
 
