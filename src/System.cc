@@ -452,6 +452,9 @@ void System::Shutdown()
         mpViewer->RequestFinish();
         while(!mpViewer->isFinished())
             usleep(5000);
+        // See from https://github.com/raulmur/ORB_SLAM2/issues/547
+        delete mpViewer;
+        mpViewer = static_cast<Viewer*>(NULL);
     }
 
     // Wait until all thread have effectively stopped
