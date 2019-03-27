@@ -81,7 +81,7 @@ If you use different RGB-D camera, modify subscribed topics at `Examples/ROS/ORB
 ## Run Active-ORB-SLAM2
 Run the following script to launch Active-ORB-SLAM2
 ```
-./kinect.sh
+./run_with_kinect_v1.sh
 ```
 
-If you want to run it with gdb, you can easily do that by running `./kinect_gdb.sh`.
+If you want to run it with gdb, you can easily do that by running `./run_with_kinect_v1_gdb.sh`.
